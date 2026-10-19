@@ -12,11 +12,11 @@ jobs:
       - uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: '21'
       - uses: Ortus-Solutions/setup-commandbox@v2.0.1
       - run: box install testbox-cli
       - run: box install
-      - run: box server start cfengine=lucee@6 port=8080 openbrowser=false
+      - run: box server start cfengine=lucee@7 port=8080 openbrowser=false
       - run: |
           box server info property=webroot
           sleep 30
