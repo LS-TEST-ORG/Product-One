@@ -1,0 +1,6 @@
+{
+  "name": "cfml-ci-practice",
+  "devDependencies": { "testbox": "^7.0.0" },
+  "installPaths": { "testbox": "testbox/" },
+  "testbox": { "runner": "http://localhost:8080/tests/runner.cfm" }
+}
