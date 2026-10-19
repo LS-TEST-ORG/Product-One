@@ -18,7 +18,9 @@ jobs:
       - run: box install
       - run: box server start cfengine=lucee@6 port=8080 openbrowser=false
       - run: |
-          ls -R models tests
-          box server info
-          curl -i http://localhost:8080/tests/runner.cfm
+          box server info property=webroot
+          sleep 30
+          curl -s -o /dev/null -w "readme %{http_code}\n" http://127.0.0.1:8080/README.md
+          curl -s -o /dev/null -w "runner %{http_code}\n" http://127.0.0.1:8080/tests/runner.cfm
+          box server log | tail -n 40
       - run: box testbox run
