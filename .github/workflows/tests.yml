@@ -17,4 +17,8 @@ jobs:
       - run: box install testbox-cli
       - run: box install
       - run: box server start cfengine=lucee@6 port=8080 openbrowser=false
+      - run: |
+          ls -R models tests
+          box server info
+          curl -i http://localhost:8080/tests/runner.cfm
       - run: box testbox run
