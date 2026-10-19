@@ -11,6 +11,7 @@
 */
 component output=false {
 
+    
     this.name = "ExportCompare_" & hash( getCurrentTemplatePath() );
     this.sessionManagement = false;
     this.setClientCookies  = false;
@@ -21,6 +22,7 @@ component output=false {
     this.monitoring.showDoc    = false;
     this.monitoring.showMetric = false;
 
+    /*
     variables.settings = {
         // Directories the page may read. A relative entry is relative to this folder.
         "allowedRoots"         : [ "./data" ],
@@ -64,5 +66,6 @@ component output=false {
         request.exportCompare = { "roots" = local.arrRoots, "poi" = variables.settings.poi };
         return true;
     }
+    */
 
 }
