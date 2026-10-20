@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-java@v5
         with:
           distribution: temurin
@@ -17,10 +17,4 @@ jobs:
       - run: box install testbox-cli
       - run: box install
       - run: box server start cfengine=lucee@7 port=8080 openbrowser=false
-      - run: |
-          box server info property=webroot
-          sleep 30
-          curl -s -o /dev/null -w "readme %{http_code}\n" http://127.0.0.1:8080/README.md
-          curl -s -o /dev/null -w "runner %{http_code}\n" http://127.0.0.1:8080/tests/runner.cfm
-          box server log | tail -n 40
       - run: box testbox run
